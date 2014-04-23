@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+#####################################################
+# Parametros para la configuracion de la base de datos
+# en la actualizacion de la cola para los ACD's
+# Es importante que se coloquen los datos correctos
+# en caso contrario el ACD no sera parte de la cola
+# global y se tendra que recompilar nuevamente el archivo.
+#
+#
+#
+#
+#####################################################
+IP_DATABASE="10.1.189.71"
+USER_DATABASE="snpt02"
+PASSWORD_DATABASE="Cantv#2013"
+PORT="9962"
+DATABASE="snpt02"
