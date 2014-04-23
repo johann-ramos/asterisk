@@ -1,3 +1,5 @@
+# Script para parar los screens
+
 #!/bin/bash
 
 
