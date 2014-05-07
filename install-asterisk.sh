@@ -420,6 +420,9 @@ case $option in
 		cp $home_directory/$USER/etc/asterisk/sip.conf $home_directory/$USER/etc/asterisk/sip.conf.ori 
 		sed -e 's/context=public/context=ctx-calls/g' $home_directory/$USER/etc/asterisk/sip.conf.ori > $home_directory/$USER/etc/asterisk/sip.conf
 
+		cd $home_directory
+		sudo chown -R $USER.$group *
+
 		echo "****************************************************"
 		echo "****************Restart Asterisk*******************"
 		echo "****************************************************"
