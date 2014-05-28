@@ -111,6 +111,8 @@ case $option in
         sudo apt-get -y install $packages_postgresql
 	
 	
+
+
 	cd $home_directory/$USER
 	mkdir src
 	cd src/
@@ -118,6 +120,15 @@ case $option in
 	tar zxvf libhoard-3.9.tar.gz
 	cd emeryberger-Hoard-d065953/src/
 	sudo make linux-gcc-x86-64
+
+	sudo /etc/init.d/snmpd stop
+	sudo /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.ori
+	sudo cp $install_directory/src/snmp/snmpd.conf /etc/snmp/
+	sudo /etc/init.d/snmpd start
+
+	snmpwalk -v1 127.0.0.1 -c C0mcantvc0r .1.3.6.1.2.1.25.2.3.1.3
+
+	sleep 10
 
 	cd $home_directory/$USER/src/
 	cp $install_directory/src/asterisk-11-current.tar.gz .
