@@ -31,6 +31,7 @@ sudo /etc/init.d/snmpd stop
 
 sudo cp /etc/asterisk/res_snmp.conf /etc/asterisk/res_snmp.conf.ori
 sudo cp /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.ori
+sudo chmod 777 /etc/snmp/snmpd.conf
 
 sudo mkdir -p /usr/share/snmp/mibs
 
@@ -49,6 +50,7 @@ sudo echo 'agentXSocket /var/agentx/master' >> /etc/snmp/snmpd.conf
 sudo echo 'agentXPerms 0660 0550 nobody $USER' >> /etc/snmp/snmpd.conf
 sudo echo 'sysObjectID .1.3.6.1.4.1.22736.1' >> /etc/snmp/snmpd.conf
 
+sudo chmod 644 /etc/snmp/snmpd.conf
 
 sudo /etc/init.d/asterisk stop
 sudo /etc/init.d/snmpd stop
