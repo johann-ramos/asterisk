@@ -34,7 +34,7 @@ sudo cp /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.ori
 
 sudo mkdir -p /usr/share/snmp/mibs
 
-cd $home_directory/$USER/$install_directory/src/snmp/
+cd $install_directory/src/snmp/
 
 sudo cp digium-mib.txt asterisk-mib.txt /usr/share/snmp/mibs
 
