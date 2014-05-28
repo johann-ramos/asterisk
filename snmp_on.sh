@@ -52,8 +52,8 @@ sudo echo 'sysObjectID .1.3.6.1.4.1.22736.1' >> /etc/snmp/snmpd.conf
 
 sudo chmod 644 /etc/snmp/snmpd.conf
 
-sudo /etc/init.d/asterisk stop
-sudo /etc/init.d/snmpd stop
+sudo /etc/init.d/asterisk start
+sudo /etc/init.d/snmpd start
 
 sleep 10
 
