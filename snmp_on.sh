@@ -3,6 +3,28 @@
 
 PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
+group=`groups $USER | awk -F": " '{print $2}'`
+install_directory=`pwd`
+ambient=$1
+
+#Case for determinate ambient
+case $ambient in
+
+"desarrollo" )
+	home_directory="/dcantv"
+	echo "estoy en desarrollo"
+;;
+"calidad" )
+	echo "estoy en calidad"
+	home_directory="/tcantv"
+;;
+
+"produccion" )
+	echo "estoy en producccion"
+	home_directory="/pcantv"
+;;
+esac
+
 sudo /etc/init.d/asterisk stop
 sudo /etc/init.d/snmpd stop
 
