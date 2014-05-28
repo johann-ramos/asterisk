@@ -38,9 +38,9 @@ cd $home_directory/$USER/$install_directory/src/snmp/
 
 sudo cp digium-mib.txt asterisk-mib.txt /usr/share/snmp/mibs
 
-cd /etc/asterisk/
-sudo sed -e 's/;subagent = yes/subagent = yes/' res_snmp.conf.ori > res_snmp.conf
-sudo sed -e 's/;enabled = yes/enabled = yes/' res_snmp.conf.ori > res_snmp.conf
+
+sudo sed -e 's/;subagent = yes/subagent = yes/' /etc/asterisk/res_snmp.conf.ori > /etc/asterisk/res_snmp.conf
+sudo sed -e 's/;enabled = yes/enabled = yes/' /etc/asterisk/res_snmp.conf.ori > /etc/asterisk/res_snmp.conf
 
 
 cd
