@@ -7,7 +7,7 @@ group=`groups $USER | awk -F": " '{print $2}'`
 install_directory=`pwd`
 ambient=$1
 home_directory = ''
-
+install_directory=`pwd`
 #Case for determinate ambient
 case $ambient in
 
@@ -34,7 +34,7 @@ sudo cp /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.ori
 
 sudo mkdir -p /usr/share/snmp/mibs
 
-cd $home_directory/$USER/src/snmp/
+cd $home_directory/$USER/$install_directory/src/snmp/
 
 sudo cp digium-mib.txt asterisk-mib.txt /usr/share/snmp/mibs
 
