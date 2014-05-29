@@ -20,8 +20,10 @@ sudo chmod 777 /etc/asterisk/extconfig.conf
 sudo chmod 777 /etc/odbcinst.ini
 sudo chmod 777 /etc/odbc.ini
 
-sudo cat > /etc/asterisk/res_odbc.conf
-sudo cat > /etc/asterisk/extconfig.conf
+sudo echo > /etc/asterisk/res_odbc.conf
+sudo echo > /etc/asterisk/extconfig.conf
+sudo echo > /etc/odbcinst.ini
+sudo echo > /etc/odbc.ini
 
 sudo echo "[PostgreSQL]" >> /etc/odbcinst.ini
 sudo echo "Description=ODBC for PostgreSQL" >> /etc/odbcinst.ini
