@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 
 if [ -h /etc/odbcins.ini ];then 
