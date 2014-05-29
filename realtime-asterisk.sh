@@ -2,7 +2,7 @@
 
 
 if [ -h /etc/odbcinst.ini ];then 
-	echo "Eliminando Link Simbolico /etc/odbcins.ini"
+	echo "Eliminando Link Simbolico /etc/odbcinst.ini"
 	sudo rm /etc/odbcinst.ini
 	sudo touch /etc/odbcinst.ini
 fi
@@ -17,16 +17,16 @@ sudo cp /etc/asterisk/extconfig.conf /etc/asterisk/extconfig.conf.ori
 
 sudo chmod 777 /etc/asterisk/res_odbc.conf
 sudo chmod 777 /etc/asterisk/extconfig.conf
-sudo chmod 777 /etc/odbcins.ini
+sudo chmod 777 /etc/odbcinst.ini
 sudo chmod 777 /etc/odbc.ini
 
 sudo cat > /etc/asterisk/res_odbc.conf
 sudo cat > /etc/asterisk/extconfig.conf
 
 sudo echo "[PostgreSQL]" >> /etc/odbcins.ini
-sudo echo "Description=ODBC for PostgreSQL" >> /etc/odbcins.ini
-sudo echo "Driver=/usr/lib/odbc/psqlodbca.so" >> /etc/odbcins.ini
-sudo echo "Setup=/usr/lib/odbc/libodbcpsqlS.so" >> /etc/odbcins.ini
+sudo echo "Description=ODBC for PostgreSQL" >> /etc/odbcinst.ini
+sudo echo "Driver=/usr/lib/odbc/psqlodbca.so" >> /etc/odbcinst.ini
+sudo echo "Setup=/usr/lib/odbc/libodbcpsqlS.so" >> /etc/odbcinst.ini
 sudo echo "FileUsage=1" >> /etc/odbcins.ini
 
 sudo echo "[asterisk-connector]" >> /etc/odbc.ini
@@ -72,5 +72,5 @@ sudo echo "musiconhold => odbc,asterisk,cc_musiconhold" >> /etc/asterisk/extconf
 
 sudo chmod 755 /etc/asterisk/res_odbc.conf
 sudo chmod 755 /etc/asterisk/extconfig.conf
-sudo chmod 755 /etc/odbcins.ini
+sudo chmod 755 /etc/odbcinst.ini
 sudo chmod 755 /etc/odbc.ini
