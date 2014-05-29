@@ -12,8 +12,8 @@ if [ -h /etc/odbc.ini ];then
 	sudo touch /etc/odbc.ini
 fi
 
-sudo /etc/asterisk/res_odbc.conf /etc/asterisk/res_odbc.conf.ori
-sudo /etc/asterisk/extconfig.conf /etc/asterisk/extconfig.conf.ori
+sudo cp /etc/asterisk/res_odbc.conf /etc/asterisk/res_odbc.conf.ori
+sudo cp /etc/asterisk/extconfig.conf /etc/asterisk/extconfig.conf.ori
 
 sudo cat > /etc/asterisk/res_odbc.conf
 sudo cat > /etc/asterisk/extconfig.conf
