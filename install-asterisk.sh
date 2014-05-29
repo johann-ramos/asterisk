@@ -123,7 +123,7 @@ case $option in
 
 	sudo /etc/init.d/snmpd stop
 	sudo /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.ori
-	sudo cp $install_directory/src/snmp/snmpd.conf /etc/snmp/
+	sudo cp $install_directory/src/snmp/snmpd.conf /etc/snmp/snmpd.conf
 	sudo /etc/init.d/snmpd start
 
 	snmpwalk -v1 127.0.0.1 -c C0mcantvc0r .1.3.6.1.2.1.25.2.3.1.3
