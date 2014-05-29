@@ -1,10 +1,10 @@
 #!/bin/bash
 
 
-if [ -h /etc/odbcins.ini ];then 
+if [ -h /etc/odbcinst.ini ];then 
 	echo 'Eliminando Link Simbolico /etc/odbcins.ini'
-	sudo rm /etc/odbcins.ini
-	sudo touch /etc/odbcins.ini
+	sudo rm /etc/odbcinst.ini
+	sudo touch /etc/odbcinst.ini
 fi
 if [ -h /etc/odbc.ini ];then 
 	echo 'Eliminando Link Simbolico /etc/odbc.ini'
