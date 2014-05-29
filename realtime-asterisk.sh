@@ -72,7 +72,7 @@ sudo echo "queue_log => odbc,asterisk,cc_queue_metrics" >> /etc/asterisk/extconf
 sudo echo "meetme => odbc,asterisk,cc_meetme" >> /etc/asterisk/extconfig.conf
 sudo echo "musiconhold => odbc,asterisk,cc_musiconhold" >> /etc/asterisk/extconfig.conf
 
-sudo chmod 755 /etc/asterisk/res_odbc.conf
-sudo chmod 755 /etc/asterisk/extconfig.conf
-sudo chmod 755 /etc/odbcinst.ini
-sudo chmod 755 /etc/odbc.ini
+sudo chmod 644 /etc/asterisk/res_odbc.conf
+sudo chmod 644 /etc/asterisk/extconfig.conf
+sudo chmod 644 /etc/odbcinst.ini
+sudo chmod 644 /etc/odbc.ini
