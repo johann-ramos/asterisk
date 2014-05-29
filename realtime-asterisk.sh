@@ -15,6 +15,11 @@ fi
 sudo cp /etc/asterisk/res_odbc.conf /etc/asterisk/res_odbc.conf.ori
 sudo cp /etc/asterisk/extconfig.conf /etc/asterisk/extconfig.conf.ori
 
+sudo chmod 777 /etc/asterisk/res_odbc.conf
+sudo chmod 777 /etc/asterisk/extconfig.conf
+sudo chmod 777 /etc/odbcins.ini
+sudo chmod 777 /etc/odbc.ini
+
 sudo cat > /etc/asterisk/res_odbc.conf
 sudo cat > /etc/asterisk/extconfig.conf
 
@@ -64,3 +69,8 @@ sudo echo "queue_members => odbc,asterisk,cc_queue_members" >> /etc/asterisk/ext
 sudo echo "queue_log => odbc,asterisk,cc_queue_metrics" >> /etc/asterisk/extconfig.conf
 sudo echo "meetme => odbc,asterisk,cc_meetme" >> /etc/asterisk/extconfig.conf
 sudo echo "musiconhold => odbc,asterisk,cc_musiconhold" >> /etc/asterisk/extconfig.conf
+
+sudo chmod 755 /etc/asterisk/res_odbc.conf
+sudo chmod 755 /etc/asterisk/extconfig.conf
+sudo chmod 755 /etc/odbcins.ini
+sudo chmod 755 /etc/odbc.ini
