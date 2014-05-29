@@ -23,11 +23,11 @@ sudo chmod 777 /etc/odbc.ini
 sudo cat > /etc/asterisk/res_odbc.conf
 sudo cat > /etc/asterisk/extconfig.conf
 
-sudo echo "[PostgreSQL]" >> /etc/odbcins.ini
+sudo echo "[PostgreSQL]" >> /etc/odbcinst.ini
 sudo echo "Description=ODBC for PostgreSQL" >> /etc/odbcinst.ini
 sudo echo "Driver=/usr/lib/odbc/psqlodbca.so" >> /etc/odbcinst.ini
 sudo echo "Setup=/usr/lib/odbc/libodbcpsqlS.so" >> /etc/odbcinst.ini
-sudo echo "FileUsage=1" >> /etc/odbcins.ini
+sudo echo "FileUsage=1" >> /etc/odbcinst.ini
 
 sudo echo "[asterisk-connector]" >> /etc/odbc.ini
 sudo echo "Description=PostgreSQL connection to 'Telephone DB snpp02' database" >> /etc/odbc.ini
