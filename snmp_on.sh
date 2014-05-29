@@ -40,15 +40,15 @@ cd $install_directory/src/snmp/
 sudo cp digium-mib.txt asterisk-mib.txt /usr/share/snmp/mibs
 
 
-sudo sed -e 's/;subagent = yes/subagent = yes/' /etc/asterisk/res_snmp.conf.ori > /etc/asterisk/res_snmp.conf
-sudo sed -e 's/;enabled = yes/enabled = yes/' /etc/asterisk/res_snmp.conf.ori > /etc/asterisk/res_snmp.conf
+sudo sed -e "s/;subagent = yes/subagent = yes/" /etc/asterisk/res_snmp.conf.ori > /etc/asterisk/res_snmp.conf
+sudo sed -e "s/;enabled = yes/enabled = yes/" /etc/asterisk/res_snmp.conf.ori > /etc/asterisk/res_snmp.conf
 
 
 cd
-sudo echo 'master agentx' >> /etc/snmp/snmpd.conf
-sudo echo 'agentXSocket /var/agentx/master' >> /etc/snmp/snmpd.conf
-sudo echo 'agentXPerms 0660 0550 nobody $USER' >> /etc/snmp/snmpd.conf
-sudo echo 'sysObjectID .1.3.6.1.4.1.22736.1' >> /etc/snmp/snmpd.conf
+sudo echo "master agentx" >> /etc/snmp/snmpd.conf
+sudo echo "agentXSocket /var/agentx/master" >> /etc/snmp/snmpd.conf
+sudo echo "agentXPerms 0660 0550 nobody $USER" >> /etc/snmp/snmpd.conf
+sudo echo "sysObjectID .1.3.6.1.4.1.22736.1" >> /etc/snmp/snmpd.conf
 
 sudo chmod 644 /etc/snmp/snmpd.conf
 
