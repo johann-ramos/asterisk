@@ -70,7 +70,7 @@ sudo echo 'pre-connect => yes' >> /etc/asterisk/res_odbc.conf
 sudo echo "[settings]" >> /etc/asterisk/extconfig.conf
 sudo echo "sippeers => odbc,asterisk,cc_sip_users" >> /etc/asterisk/extconfig.conf
 sudo echo "sipusers => odbc,asterisk,cc_sip_users" >> /etc/asterisk/extconfig.conf
-sudo echo "sipregs => odbc,asterisk,cc_sip_regs" >> /etc/asterisk/extconfig.conf
+sudo echo "sipregs => odbc,asterisk,cc_sip_users" >> /etc/asterisk/extconfig.conf
 sudo echo "iaxusers => odbc,asterisk,cc_iax_users" >> /etc/asterisk/extconfig.conf
 sudo echo "iaxpeers => odbc,asterisk,cc_iax_users" >> /etc/asterisk/extconfig.conf
 sudo echo "extensions => odbc,asterisk,cc_dialplan" >> /etc/asterisk/extconfig.conf
