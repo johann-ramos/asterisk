@@ -20,7 +20,7 @@
 		echo "****************************************************"
 		echo "***********Excute AGI screen*******************"
 		echo "****************************************************"
-		sudo screen -dmS AGI java -cp lib/asterisk-java-1.0.0.M3.jar:lib/postgresql-9.1-903.jdbc4.jar:fastagi-mapping.properties:. -Xms1000m -Xmx1000m org.asteriskjava.fastagi.DefaultAgiServer
+		sudo screen -dmS AGI java -cp lib/asterisk-java-1.0.0.M3.jar:lib/postgresql-9.1-903.jdbc4.jar:fastagi-mapping.properties:. -Xms1024m -Xmx1024m org.asteriskjava.fastagi.DefaultAgiServer
 		sleep 3
 
 		echo "****************************************************"
