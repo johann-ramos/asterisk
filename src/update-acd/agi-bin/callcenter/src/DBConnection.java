@@ -19,7 +19,8 @@ public class DBConnection
         try
         {
             Class.forName("org.postgresql.Driver");
-            connection = DriverManager.getConnection("jdbc:postgresql://10.1.189.71:9962/snpt02?user=snpt02&password=Cantv#2013");
+            //connection = DriverManager.getConnection("jdbc:postgresql://10.1.189.71:9962/snpt02?user=snpt02&password=Cantv#2013");
+              connection = DriverManager.getConnection("jdbc:postgresql://xxx.xxx.xxx.xxx:port/callcenter?user=user&password=password");
         }
         catch(Exception exception)
         {
