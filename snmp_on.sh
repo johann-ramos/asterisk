@@ -6,7 +6,7 @@ PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 group=`groups $USER | awk -F": " '{print $2}'`
 install_directory=`pwd`
 ambient=$1
-home_directory = ''
+home_directory=''
 install_directory=`pwd`
 #Case for determinate ambient
 case $ambient in
