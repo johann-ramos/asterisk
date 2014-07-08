@@ -29,7 +29,7 @@ esac
 sudo /etc/init.d/asterisk stop
 sudo /etc/init.d/snmpd stop
 
-sudo cp /etc/asterisk/res_snmp.conf /etc/asterisk/res_snmp.conf.ori
+
 sudo cp /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.ori
 sudo chmod 777 /etc/snmp/snmpd.conf
 
@@ -39,8 +39,11 @@ cd $install_directory/src/snmp/
 
 sudo cp digium-mib.txt asterisk-mib.txt /usr/share/snmp/mibs
 
+sudo aptitude install snmp-mibs-downloader
 
+sudo cp /etc/asterisk/res_snmp.conf /etc/asterisk/res_snmp.conf.ori
 sudo sed -e "s/;subagent = yes/subagent = yes/" /etc/asterisk/res_snmp.conf.ori > /etc/asterisk/res_snmp.conf
+sudo cp /etc/asterisk/res_snmp.conf /etc/asterisk/res_snmp.conf.ori
 sudo sed -e "s/;enabled = yes/enabled = yes/" /etc/asterisk/res_snmp.conf.ori > /etc/asterisk/res_snmp.conf
 
 
