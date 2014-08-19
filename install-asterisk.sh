@@ -374,6 +374,29 @@ case $option in
 	;;
 
 	"ivr" )
+		source $install_directory/config/local.rc
+
+		if [ ! -d "/var/lib/jvm" ];
+		then
+			sudo mkdir -p /var/lib/jvm
+			cd /var/lib/jvm
+		else
+			cd /var/lib/jvm
+		fi
+		echo "Copy $install_directory/src/jdk-6u45-linux-x64.bin"
+		sudo cp $install_directory/src/jdk-6u45-linux-x64.bin .
+		sudo chmod +x jdk-6u45-linux-x64.bin
+		sudo ./jdk-6u45-linux-x64.bin
+		sudo rm -rf jdk-6u45-linux-x64.bin
+
+		echo "***************************************"
+		echo "******Set Default VM on System*********"
+		echo "***************************************"
+
+		sudo update-alternatives --install /usr/bin/java java /var/lib/jvm/jdk1.6.0_45/bin/java 20000
+        sudo update-alternatives --install /usr/bin/javac javac /var/lib/jvm/jdk1.6.0_45/bin/javac 20000
+
+        sudo cp -R $install_directory/src/ZTE-PIC /var/lib/asterisk/agi-bin
 
 	;;
 
