@@ -37,7 +37,8 @@ sudo mkdir -p /usr/share/snmp/mibs
 
 cd $install_directory/src/snmp/
 
-sudo cp digium-mib.txt asterisk-mib.txt /usr/share/snmp/mibs
+sudo cp digium-mib.txt /usr/share/snmp/mibs/DIGIUM-MIB.txt
+sudo cp asterisk-mib.txt /usr/share/snmp/mibs/ASTERISK-MIB.txt
 
 sudo aptitude install snmp-mibs-downloader
 
