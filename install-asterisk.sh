@@ -42,7 +42,7 @@ SSL=''
 
 #section for dependences###########
 packages_snmp="snmp libsnmp-dev snmpd unixodbc unixodbc-dev"
-packages_essential="build-essential linux-headers-`uname -r` libxml2-dev libncurses5-dev libgtk2.0-dev libnewt0.52 libnewt-dev libsqlite3-dev"
+packages_essential="build-essential linux-headers-`uname -r` libxml2 libxml2-dev libncurses5-dev libgtk2.0-dev libnewt0.52 libnewt-dev libsqlite3-dev"
 packages_postgresql="postgresql-client libpq-dev php5 php5-pgsql uuid uuid-dev"
 ###################################
 
