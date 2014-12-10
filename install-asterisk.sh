@@ -122,7 +122,7 @@ case $option in
 	sudo make linux-gcc-x86-64
 
 	sudo /etc/init.d/snmpd stop
-	sudo /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.ori
+	sudo cp /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.ori
 	sudo cp $install_directory/src/snmp/snmpd.conf /etc/snmp/snmpd.conf
 	sudo /etc/init.d/snmpd start
 
