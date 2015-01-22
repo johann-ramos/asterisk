@@ -40,7 +40,7 @@ cd $install_directory/src/snmp/
 sudo cp digium-mib.txt /usr/share/snmp/mibs/DIGIUM-MIB.txt
 sudo cp asterisk-mib.txt /usr/share/snmp/mibs/ASTERISK-MIB.txt
 
-sudo aptitude install snmp-mibs-downloader
+sudo aptitude -y install snmp-mibs-downloader
 
 sudo cp /etc/asterisk/res_snmp.conf /etc/asterisk/res_snmp.conf.ori
 sudo sed -e "s/;subagent = yes/subagent = yes/" /etc/asterisk/res_snmp.conf.ori > /etc/asterisk/res_snmp.conf
