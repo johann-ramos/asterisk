@@ -10,16 +10,19 @@
 # Parametros de entrada:
 # 1.- install , unistall
 # 2.- desarrollo , calidad , produccion
-# 3.- ivr , acd , asr
+# 3.- ivr , acd , asr, full
+# 4.- nossl , ssl
 # IMPORTANTE: Se debe correr con un usuario no root 
 # que tenga permisologia de sudo. NO DEBE CORRER COMO ROOT.
 #
+#
+#  Ejemplo: ./install-asterisk.sh install produccion full nossl
 #
 #
 # Actualizaciones:
 # 21April2014: Se Agrego la actualizacion de cola cuando es un ACD
 # 22April2014: Se modifico para borrar los modulos de lib64 o lib de usr
-#
+# 22Jan2015: Se modifica para el caso de servidor full
 #
 #
 ##############################################################
@@ -68,7 +71,11 @@ if [ -z "$ambient" ];then
 fi
 
 if [ -z "$type" ];then
-	echo "You must provide one parameter for type ivr|acd|asr"
+	echo "You must provide one parameter for type ivr|acd|asr|full"
+	exit 0
+fi
+if [ -z "$SSL" ];then
+	echo "You must provide one parameter for type ssl|nossl"
 	exit 0
 fi
 
@@ -103,11 +110,17 @@ case $option in
 	cd $home_directory
 	sudo chown -R $USER.$group *
 	sudo apt-get update
-	echo "INSTALING PACKAGES SNMP"
+	echo "******************************"
+	echo "****INSTALING PACKAGES SNMP***"
+	echo "******************************"
 	sudo apt-get -y install $packages_snmp
+	echo "******************************"
 	echo "INSTALING PACKAGES ESSENTIALS"
+	echo "******************************"
 	sudo apt-get -y install $packages_essential
+	echo "******************************"
 	echo "INSTALING PACKAGES POSTGRESQL"
+	echo "******************************"
         sudo apt-get -y install $packages_postgresql
 	
 	
@@ -285,13 +298,13 @@ case $option in
 	
 	if [ "$SSL" == "ssl" ];
         then
-			echo "*****************************************************************"
+	    echo "*****************************************************************"
             echo "*********************Configure whit ssl**************************"
             echo "*****************************************************************"
             sleep 5
             sudo ./configure CFLAGS=-mtune=native --libdir=/usr/lib64 -with-hoard=$home_directory/$USER/src/emeryberger-Hoard-d065953/src/
         else
-			echo "*****************************************************************"
+	    echo "*****************************************************************"
             echo "******************Configure whitout ssl**************************"
             echo "*****************************************************************"
             sleep 5
@@ -310,7 +323,7 @@ case $option in
 	mkdir -p usr/lib
 	if [ -d /usr/lib/asterisk ];then
 		echo "***************************************"
-        echo "********El drirectorio es 32 bits*******"
+        	echo "********El drirectorio es 32 bits*******"
 		echo "***************************************"
 		sleep 5
 		cd $home_directory/$USER
@@ -327,7 +340,7 @@ case $option in
 
 	if [ -d /usr/lib64/asterisk ];then
 		echo "***************************************"
-        echo "********El drirectorio es 64 bits*******"
+        	echo "********El drirectorio es 64 bits*******"
 		echo "***************************************"
 		sleep 5
 		cd $home_directory/$USER
@@ -355,20 +368,45 @@ case $option in
 	if [ -f "/var/run/asterisk/asterisk.pid" ];
         then
 			echo "***************************************"
-        	echo "********Asterisk install succefful*****"
+        		echo "********Asterisk install succefful*****"
 			echo "***************************************"
 		#$home_directory/$USER/usr/sbin/asterisk -rvvvvvv
 		
         else
 			echo "***************************************"
-        	echo "ALERT: Asterisk instalation no succefull"
+        		echo "ALERT: Asterisk instalation no succefull"
 			echo "***************************************"
         fi
     
 
 
-	#case for determinate option for server type ASR, ACD, IVR.
+	#case for determinate option for server type ASR, ACD, IVR, FULL.
 	case $type in
+
+	"full" )
+		source $install_directory/config/local.rc
+
+		if [ ! -d "/var/lib/jvm" ];
+		then
+			sudo mkdir -p /var/lib/jvm
+			cd /var/lib/jvm
+		else
+			cd /var/lib/jvm
+		fi
+		echo "Copy $install_directory/src/jdk-6u45-linux-x64.bin"
+		sudo cp $install_directory/src/jdk-6u45-linux-x64.bin .
+		sudo chmod +x jdk-6u45-linux-x64.bin
+		sudo ./jdk-6u45-linux-x64.bin
+		sudo rm -rf jdk-6u45-linux-x64.bin
+
+		echo "***************************************"
+		echo "******Set Default VM on System*********"
+		echo "***************************************"
+
+		sudo update-alternatives --install /usr/bin/java java /var/lib/jvm/jdk1.6.0_45/bin/java 20000
+        	sudo update-alternatives --install /usr/bin/javac javac /var/lib/jvm/jdk1.6.0_45/bin/javac 20000
+		sudo cp -R $install_directory/src/ZTE-PIC /var/lib/asterisk/agi-bin
+	;;
 	"asr" )
 
 	;;
@@ -394,9 +432,8 @@ case $option in
 		echo "***************************************"
 
 		sudo update-alternatives --install /usr/bin/java java /var/lib/jvm/jdk1.6.0_45/bin/java 20000
-        sudo update-alternatives --install /usr/bin/javac javac /var/lib/jvm/jdk1.6.0_45/bin/javac 20000
-
-        sudo cp -R $install_directory/src/ZTE-PIC /var/lib/asterisk/agi-bin
+        	sudo update-alternatives --install /usr/bin/javac javac /var/lib/jvm/jdk1.6.0_45/bin/javac 20000
+		sudo cp -R $install_directory/src/ZTE-PIC /var/lib/asterisk/agi-bin
 
 	;;
 
@@ -422,7 +459,7 @@ case $option in
 		echo "***************************************"
 
 		sudo update-alternatives --install /usr/bin/java java /var/lib/jvm/jdk1.6.0_45/bin/java 20000
-        sudo update-alternatives --install /usr/bin/javac javac /var/lib/jvm/jdk1.6.0_45/bin/javac 20000
+        	sudo update-alternatives --install /usr/bin/javac javac /var/lib/jvm/jdk1.6.0_45/bin/javac 20000
 
 
 		echo "****************************************************"
