@@ -300,7 +300,8 @@ case $option in
 
 	cd $home_directory
 	sudo chown -R $USER.$group *
-	cd $home_directory/$USER/src/asterisk-11.4.0
+	#cd $home_directory/$USER/src/asterisk-11.4.0 vieja version
+	cd $home_directory/$USER/src/asterisk-11.11.0
 	sudo make clean
 	
 	if [ "$SSL" == "ssl" ];
@@ -439,7 +440,7 @@ case $option in
 		echo "***************************************"
 
 		sudo update-alternatives --install /usr/bin/java java /var/lib/jvm/jdk1.6.0_45/bin/java 20000
-        	sudo update-alternatives --install /usr/bin/javac javac /var/lib/jvm/jdk1.6.0_45/bin/javac 20000
+        sudo update-alternatives --install /usr/bin/javac javac /var/lib/jvm/jdk1.6.0_45/bin/javac 20000
 		sudo cp -R $install_directory/src/ZTE-PIC /var/lib/asterisk/agi-bin
 
 	;;
