@@ -86,17 +86,17 @@ echo "Begin to install"
 case $ambient in
 
 "desarrollo" )
-	home_directory="/dcantv"
+	home_directory="/desarrollo"
 	echo "estoy en desarrollo"
 ;;
 "calidad" )
 	echo "estoy en calidad"
-	home_directory="/tcantv"
+	home_directory="/calidad"
 ;;
 
 "produccion" )
 	echo "estoy en producccion"
-	home_directory="/pcantv"
+	home_directory="/produccion"
 ;;
 esac
 
