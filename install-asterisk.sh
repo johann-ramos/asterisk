@@ -88,15 +88,18 @@ case $ambient in
 "desarrollo" )
 	home_directory="/desarrollo"
 	echo "estoy en desarrollo"
+	sleep 5
 ;;
 "calidad" )
 	echo "estoy en calidad"
 	home_directory="/calidad"
+	sleep 5
 ;;
 
 "produccion" )
 	echo "estoy en producccion"
 	home_directory="/produccion"
+	sleep 5
 ;;
 esac
 
@@ -113,15 +116,18 @@ case $option in
 	echo "******************************"
 	echo "****INSTALING PACKAGES SNMP***"
 	echo "******************************"
+	sleep 5
 	sudo apt-get -y install $packages_snmp
 	echo "******************************"
 	echo "INSTALING PACKAGES ESSENTIALS"
 	echo "******************************"
+	sleep 5
 	sudo apt-get -y install $packages_essential
 	echo "******************************"
 	echo "INSTALING PACKAGES POSTGRESQL"
 	echo "******************************"
-        sudo apt-get -y install $packages_postgresql
+	sleep 5
+    sudo apt-get -y install $packages_postgresql
 	
 	
 
@@ -146,7 +152,7 @@ case $option in
 	cd $home_directory/$USER/src/
 	cp $install_directory/src/asterisk-11-current.tar.gz .
 	tar xvzf asterisk-11-current.tar.gz
-	cd asterisk-11.4.0
+	cd asterisk-11.11.0
 
 	if [ "$SSL" == "ssl" ];
 	then
@@ -163,7 +169,7 @@ case $option in
 		sudo ./configure CFLAGS=-mtune=native --libdir=/usr/lib64 --disable-asteriskssl -with-hoard=$home_directory/$USER/src/emeryberger-Hoard-d065953/src/
 	fi
 
-	cp $home_directory/$USER/src/menuselect/* .
+	cp $install_directory/$USER/src/menuselect/* .
 	sudo make
 	sudo make all
 	sudo make install
